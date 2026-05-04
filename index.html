@@ -2,136 +2,20 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dispatch, by Studio b. — Field notes from inside the operation.</title>
-  <meta name="description" content="The newsletter of Consulting, by Studio b. War stories and operational patterns from active AI transformation engagements — anonymized, direct, and written for operators.">
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="Dispatch, by Studio b.">
-  <meta property="og:title" content="Field notes from inside the operation.">
-  <meta property="og:description" content="The newsletter of Consulting, by Studio b. War stories and operational patterns from active AI transformation engagements.">
-  <meta property="og:url" content="https://dispatch.b.studio">
-  <meta name="twitter:card" content="summary_large_image">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,900;1,9..144,900&family=Inter:wght@400;600;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <title>Dispatch has moved to Markdown, by Studio b.</title>
+  <link rel="canonical" href="https://markdown.b.studio/">
+  <meta http-equiv="refresh" content="0; url=https://markdown.b.studio/">
+  <meta name="robots" content="noindex">
+  <script>window.location.replace('https://markdown.b.studio' + window.location.pathname + window.location.search + window.location.hash);</script>
   <style>
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-    :root {
-      --yolk: #F7D344;
-      --ink: #0D0D0D;
-      --vermillion: #D94425;
-      --paper: #F4F1EB;
-      --forest: #1A3328;
-    }
-    html { scroll-behavior: smooth; }
-    body { background: var(--ink); color: var(--yolk); font-family: 'Inter', sans-serif; min-height: 100vh; }
-
-    .stripe { height: 6px; width: 100%; background: repeating-linear-gradient(-45deg, var(--yolk) 0, var(--yolk) 8px, var(--ink) 8px, var(--ink) 16px); }
-
-    .nav { padding: 1.25rem 4rem; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(247,211,68,0.1); }
-    .bmark { font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 1.6rem; color: var(--yolk); text-decoration: none; letter-spacing: -0.04em; line-height: 1; }
-    .bmark .dot { color: var(--vermillion); }
-    .nav-right { display: flex; gap: 1.5rem; align-items: center; }
-    .nav-link { font-family: 'JetBrains Mono', monospace; font-size: 0.5rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(247,211,68,0.4); text-decoration: none; transition: color 0.12s; padding: 0.5rem; }
-    .nav-link:hover { color: var(--yolk); }
-    .brand-b { text-transform: none; }
-    .brand-dot { color: var(--vermillion); }
-
-    .hero { padding: 6rem 4rem 5rem; max-width: 1100px; }
-    .firm-label { font-family: 'JetBrains Mono', monospace; font-size: 0.58rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(247,211,68,0.5); margin-bottom: 2rem; }
-    .firm-label a { color: inherit; text-decoration: none; border-bottom: 1px solid rgba(247,211,68,0.25); transition: color 0.12s, border-color 0.12s; }
-    .firm-label a:hover { color: var(--yolk); border-bottom-color: var(--yolk); }
-    h1 { font-family: 'Fraunces', serif; font-weight: 900; font-style: italic; font-size: clamp(3rem, 6vw, 5.5rem); line-height: 0.95; letter-spacing: -0.025em; color: var(--yolk); margin-bottom: 1.75rem; max-width: 14ch; }
-    .hero-body { font-size: 1.05rem; line-height: 1.65; color: rgba(247,211,68,0.72); max-width: 560px; }
-
-    .subscribe { padding: 4rem; border-top: 3px solid var(--yolk); border-bottom: 3px solid var(--yolk); position: relative; }
-    .subscribe::before { content: ''; position: absolute; inset: 0; background: repeating-linear-gradient(-45deg, var(--yolk) 0, var(--yolk) 3px, transparent 3px, transparent 18px); opacity: 0.05; pointer-events: none; }
-    .subscribe-inner { max-width: 640px; position: relative; }
-    .subscribe-kicker { font-family: 'JetBrains Mono', monospace; font-size: 0.5rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(247,211,68,0.4); margin-bottom: 1rem; }
-    .subscribe-headline { font-family: 'Fraunces', serif; font-weight: 900; font-style: italic; font-size: clamp(1.6rem, 3vw, 2.25rem); line-height: 1.05; letter-spacing: -0.02em; color: var(--yolk); margin-bottom: 1rem; }
-    .subscribe-body { font-size: 0.92rem; line-height: 1.65; color: rgba(247,211,68,0.65); margin-bottom: 1.5rem; }
-
-    .archive { padding: 4rem; }
-    .section-eyebrow { font-family: 'JetBrains Mono', monospace; font-size: 0.5rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(247,211,68,0.4); margin-bottom: 2rem; }
-    .archive-empty { font-family: 'Fraunces', serif; font-style: italic; font-size: 1.4rem; color: rgba(247,211,68,0.6); margin-bottom: 1rem; }
-    .archive-empty-body { font-size: 0.92rem; line-height: 1.65; color: rgba(247,211,68,0.5); max-width: 540px; }
-
-    footer { padding: 3rem 4rem 2rem; border-top: 1px solid rgba(247,211,68,0.1); display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2rem; }
-    .footer-col h4 { font-family: 'JetBrains Mono', monospace; font-size: 0.5rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(247,211,68,0.35); margin-bottom: 0.75rem; }
-    .footer-col a { display: block; font-family: 'JetBrains Mono', monospace; font-size: 0.62rem; letter-spacing: 0.08em; color: rgba(247,211,68,0.55); text-decoration: none; padding: 0.25rem 0; transition: color 0.12s; }
-    .footer-col a:hover { color: var(--yolk); }
-    .footer-bottom { padding: 1.25rem 4rem 2rem; display: flex; justify-content: space-between; align-items: center; font-family: 'JetBrains Mono', monospace; font-size: 0.5rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(247,211,68,0.25); }
-
-    @media (max-width: 768px) {
-      .nav { padding: 1rem 1.5rem; }
-      .hero { padding: 4rem 1.5rem 3rem; }
-      .subscribe, .archive { padding: 3rem 1.5rem; }
-      footer { grid-template-columns: 1fr; padding: 3rem 1.5rem 1.5rem; }
-      .footer-bottom { padding: 1rem 1.5rem 2rem; flex-direction: column; gap: 0.75rem; align-items: flex-start; }
-    }
+    body { font-family: 'JetBrains Mono', monospace; background: #0D0D0D; color: #F7D344; padding: 4rem 2rem; max-width: 600px; margin: 0 auto; }
+    a { color: #F7D344; }
+    .dot { color: #D94425; }
   </style>
 </head>
 <body>
-
-<div class="stripe"></div>
-
-<nav class="nav">
-  <a href="/" class="bmark">b<span class="dot">.</span></a>
-  <div class="nav-right">
-    <a href="https://b.studio" class="nav-link">← b<span class="brand-dot">.</span>studio</a>
-    <a href="#archive" class="nav-link">Archive</a>
-    <a href="#subscribe" class="nav-link">Subscribe →</a>
-  </div>
-</nav>
-
-<section class="hero">
-  <p class="firm-label">Dispatch, by Studio <span class="brand-b">b<span class="brand-dot">.</span></span> · Field notes from Kevin Bibelhausen</p>
-  <h1>Field notes from inside the operation.</h1>
-  <p class="hero-body">War stories and operational patterns from active AI transformation engagements — anonymized, direct, and written for operators who want to know what's actually working. Not what consultants are selling.</p>
-</section>
-
-<section class="subscribe" id="subscribe">
-  <div class="subscribe-inner">
-    <div class="subscribe-kicker">Subscribe — free</div>
-    <h2 class="subscribe-headline">Issued when there's something to say. Not on a calendar.</h2>
-    <p class="subscribe-body">No drip campaign, no growth-hacked send cadence. You'll hear from us when an engagement produces a pattern worth writing down.</p>
-    <div class="embed-wrap">
-      <iframe src="https://embeds.beehiiv.com/pub_82610f24-3f9f-4e24-89e2-7b445921e67f?slim=true" data-test-id="beehiiv-embed" height="52" frameborder="0" scrolling="no" style="margin: 0; border-radius: 0px !important; background-color: transparent; width: 100%;"></iframe>
-    </div>
-  </div>
-</section>
-
-<section class="archive" id="archive">
-  <p class="section-eyebrow">Archive</p>
-  <p class="archive-empty">Issue 001 — coming soon.</p>
-  <p class="archive-empty-body">Dispatch is launching. Subscribe above to get the first issue when it ships, and every issue after that.</p>
-</section>
-
-<footer>
-  <div class="footer-col">
-    <h4>Dispatch</h4>
-    <a href="#subscribe">Subscribe</a>
-    <a href="#archive">Archive</a>
-  </div>
-  <div class="footer-col">
-    <h4>Other newsletters</h4>
-    <a href="https://dli.b.studio">DLI, by Studio <span class="brand-b">b<span class="brand-dot">.</span></span></a>
-    <a href="https://markdown.b.studio">Markdown, by Studio <span class="brand-b">b<span class="brand-dot">.</span></span></a>
-  </div>
-  <div class="footer-col">
-    <h4>Studio <span class="brand-b">b<span class="brand-dot">.</span></span></h4>
-    <a href="https://b.studio">b<span class="brand-dot">.</span>studio</a>
-    <a href="https://bolt.b.studio">Bolt</a>
-    <a href="https://acuops.com">AcuOps</a>
-    <a href="https://amplify.b.studio">Amplify</a>
-    <a href="mailto:hello@b.studio">hello@b<span class="brand-dot">.</span>studio</a>
-  </div>
-</footer>
-
-<div class="footer-bottom">
-  <span>Dispatch, by Studio <span class="brand-b">b<span class="brand-dot">.</span></span> · Published by Kevin Bibelhausen</span>
-  <span>&copy; 2026 Studio <span class="brand-b">b<span class="brand-dot">.</span></span></span>
-</div>
-
+  <h1>b<span class="dot">.</span></h1>
+  <p>Dispatch folded into <a href="https://markdown.b.studio/">Markdown, by Studio b<span class="dot">.</span></a> — same writer, broader scope. Redirecting…</p>
+  <p>If you're not redirected, <a href="https://markdown.b.studio/">click here</a>.</p>
 </body>
 </html>
